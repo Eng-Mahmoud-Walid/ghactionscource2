@@ -1,0 +1,26 @@
+name: Second workflow
+on:
+    push:
+        branches:
+            - main
+            - "release/**"
+        paths:
+            - "src/**"    #only when files in these two folder changes
+            - "test/**"
+    pull_request:
+        branches:
+            - main
+            - "release/**"
+        paths:
+            - "src/**"
+            - "test/**"
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Checkout code
+              uses: actions/checkout@v5
+            
+            - name: Run tests
+              run: npm test
+               
