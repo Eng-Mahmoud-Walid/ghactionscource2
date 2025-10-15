@@ -1,0 +1,11 @@
+name: manual workflow 2
+on: 
+  repository_dispatch:
+    types: [incident_report]
+
+jobs:
+  handel-incident:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print incident details
+        run: echo "Incident reported"
