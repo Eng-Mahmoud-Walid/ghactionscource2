@@ -1,0 +1,11 @@
+name: scheduled workflow
+on: 
+  schedule:
+    - cron: "0 0 * * 5"
+    - cron: "0 0 * * 6"
+jobs:
+  daily-tasks:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Print Hello!
+        run: echo "Hello!"
