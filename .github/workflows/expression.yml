@@ -1,0 +1,12 @@
+name: expression workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  expression:
+    steps:
+      - name: Print a message
+        run: echo "The job is running"
+        if: ${{ github.event_name == 'push' && github.ref != 'refs/head/main' || !contains(github.event.head_commit.message, 'WIP')}} # == , != , && , ||
+      # if: ${{ startwith(github.ref, 'refs/tags/v') }}       
