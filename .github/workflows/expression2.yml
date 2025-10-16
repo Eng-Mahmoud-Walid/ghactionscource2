@@ -1,0 +1,19 @@
+name: expression workflow 2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  expression:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running a deployment script
+        run: ./deploy.sh
+
+      - name: Cleanup on failure
+        run: echo "Cleaning up"
+        if: failure() 
+       #if: success() 
+       #if: always() 
+       #if: cancelled()
+       
